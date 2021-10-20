@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+    oidc-provider:
+        build: provider/
+        network_mode: "host"
+
+    oidc-client:
+        build: client/
+        network_mode: "host"
+        depends_on:
+            - oidc-provider
